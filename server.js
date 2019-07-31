@@ -11,8 +11,11 @@ server.use(logger);
 server.use("/api/users", userRouter);
 server.use("/api/posts", postRouter);
 
+const greeting = process.env.GREETING;
+
 server.get("/", (req, res) => {
-  res.send(`<h2>Let's write some middleware!</h2>`);
+  res.send(`<h2>Let's write some middleware!</h2>
+  <p>${greeting}</p>`);
 });
 
 //error handler
